@@ -118,9 +118,10 @@ namespace InicioCapas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            
-          
-            if (textosLlenos())
+            libro.Titulo = txtTituloLibro.Text;
+            lnl.modificar(libro, "");
+            llenarDGV();
+        /*    if (textosLlenos())
             {
                 if (libro == null)
                 {
@@ -131,13 +132,9 @@ namespace InicioCapas
                 {
                     insertarLibro();
                 }
-
-
-
                 insertarLibro();
-
             
-            }
+            }*/
         }
 
         private void insertarLibro()
