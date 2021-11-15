@@ -171,6 +171,7 @@ namespace InicioCapas
             this.dgvLibros.ReadOnly = true;
             this.dgvLibros.Size = new System.Drawing.Size(536, 150);
             this.dgvLibros.TabIndex = 13;
+            this.dgvLibros.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLibros_CellContentClick);
             this.dgvLibros.DoubleClick += new System.EventHandler(this.dgvLibros_DoubleClick);
             // 
             // frmLibros

@@ -160,7 +160,7 @@ namespace CapaAccesoDatos
             string sentencia = "Select claveLibro,titulo,claveAutor,ClaveCategoria from Libro";
 
             if (!string.IsNullOrEmpty(condicion))
-                sentencia = string.Format("{0} where{1}", sentencia, condicion);
+                sentencia = string.Format("{0} where {1}", sentencia, condicion);
 
             SqlConnection conexion = new SqlConnection(cadConexion);// adapter para llenar dataset y dataview, y llevarlos a la base
             SqlDataAdapter adaptador;// no se instancia de una vez, solo donde se usa  PARA EL DATASET NO SE USA COMANDO
@@ -206,7 +206,7 @@ namespace CapaAccesoDatos
                     libro.ClaveLibro = dato.GetString(0);
                     libro.Titulo = dato.GetString(1);
                     libro.ClaveAutor = dato.GetString(2);
-                    libro.Categoria.ClaveCategoria = dato.GetString(3);
+                    libro.Categoria.ClaveCategoria= dato.GetString(3); 
                 }
 
                 conexion.Close();

@@ -40,7 +40,7 @@ namespace InicioCapas
         }
 
 
-        private void llenarDGV(string condicion="")
+        public void llenarDGV(string condicion="")
         {
             LNLibro ln= new LNLibro(Config.cadConexion);
             DataSet ds;
@@ -118,6 +118,7 @@ namespace InicioCapas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+           
             libro.Titulo = txtTituloLibro.Text;
             lnl.modificar(libro, "");
             llenarDGV();
@@ -257,6 +258,11 @@ namespace InicioCapas
                 
                
             }
+        }
+
+        private void dgvLibros_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

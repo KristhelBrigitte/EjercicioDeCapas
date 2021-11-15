@@ -10,7 +10,7 @@ namespace InicioCapas
     {
         public static string cadConexion
         {
-            get { return Properties.Settings.Default.CadConexion; } 
+            get { return Properties.Settings.Default.CadConexion2; } 
         }
     }
 }
