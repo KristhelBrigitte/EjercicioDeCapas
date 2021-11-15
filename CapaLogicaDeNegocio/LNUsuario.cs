@@ -37,5 +37,20 @@ namespace CapaLogicaDeNegocio
             }
             return us;
         }
+
+        public bool claveUsuarioExiste(string clave)
+        {
+            bool result = false;
+            ADUsuario adUsuario = new ADUsuario(cadConexion);
+            try
+            {
+                result = adUsuario.claveUsuarioExiste(clave);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }

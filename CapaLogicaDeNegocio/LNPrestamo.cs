@@ -36,5 +36,49 @@ namespace CapaLogicaDeNegocio
 
         }
 
+        public bool clavePrestamoExiste(string clave)
+        {
+            bool result = false;
+            AdPrestamo adPres = new AdPrestamo(cadConexion);
+            try
+            {
+                result = adPres.clavePrestamoExiste(clave);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
+        public bool claveEjemplarExiste(string clav)
+        {
+            bool result = false;
+            ADEjemplar adEjem = new ADEjemplar(cadConexion);
+            try
+            {
+                result = adEjem.claveEjemplarExiste(clav);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+        public DataSet listarTodos(string condicion)
+        {
+            DataSet setPrestamos;
+            AdPrestamo adPres = new AdPrestamo(cadConexion);
+            try
+            {
+                setPrestamos= adPres.listarTodos(condicion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return setPrestamos;
+        }
+
     }
 }

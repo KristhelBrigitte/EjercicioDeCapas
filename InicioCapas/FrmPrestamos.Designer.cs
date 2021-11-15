@@ -43,11 +43,11 @@ namespace InicioCapas
             this.dtpEntrega = new System.Windows.Forms.DateTimePicker();
             this.txtClaveE = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.dgvLibro = new System.Windows.Forms.DataGridView();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEjemplar = new System.Windows.Forms.Button();
+            this.dgvPrestamos = new System.Windows.Forms.DataGridView();
             this.dgvLib = new System.Windows.Forms.DataGridView();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnUsuario = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCurp = new System.Windows.Forms.TextBox();
             this.txtClavPres = new System.Windows.Forms.TextBox();
@@ -61,14 +61,17 @@ namespace InicioCapas
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLibros)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLibro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPrestamos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLib)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpDevolucion
             // 
-            this.dtpDevolucion.Location = new System.Drawing.Point(720, 46);
+            this.dtpDevolucion.Location = new System.Drawing.Point(717, 46);
             this.dtpDevolucion.Name = "dtpDevolucion";
             this.dtpDevolucion.Size = new System.Drawing.Size(214, 20);
             this.dtpDevolucion.TabIndex = 0;
@@ -92,7 +95,7 @@ namespace InicioCapas
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(439, 79);
+            this.btnGuardar.Location = new System.Drawing.Point(442, 79);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 3;
@@ -104,6 +107,7 @@ namespace InicioCapas
             // 
             this.txtDireccion.Location = new System.Drawing.Point(99, 385);
             this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.ReadOnly = true;
             this.txtDireccion.Size = new System.Drawing.Size(239, 20);
             this.txtDireccion.TabIndex = 4;
             // 
@@ -111,6 +115,7 @@ namespace InicioCapas
             // 
             this.txtEmail.Location = new System.Drawing.Point(99, 343);
             this.txtEmail.Name = "txtEmail";
+            this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(239, 20);
             this.txtEmail.TabIndex = 5;
             // 
@@ -118,6 +123,7 @@ namespace InicioCapas
             // 
             this.txtFechaN.Location = new System.Drawing.Point(99, 301);
             this.txtFechaN.Name = "txtFechaN";
+            this.txtFechaN.ReadOnly = true;
             this.txtFechaN.Size = new System.Drawing.Size(239, 20);
             this.txtFechaN.TabIndex = 6;
             // 
@@ -125,6 +131,7 @@ namespace InicioCapas
             // 
             this.txtAp2.Location = new System.Drawing.Point(99, 259);
             this.txtAp2.Name = "txtAp2";
+            this.txtAp2.ReadOnly = true;
             this.txtAp2.Size = new System.Drawing.Size(239, 20);
             this.txtAp2.TabIndex = 7;
             // 
@@ -132,13 +139,15 @@ namespace InicioCapas
             // 
             this.txtAp1.Location = new System.Drawing.Point(99, 218);
             this.txtAp1.Name = "txtAp1";
+            this.txtAp1.ReadOnly = true;
             this.txtAp1.Size = new System.Drawing.Size(239, 20);
             this.txtAp1.TabIndex = 8;
             // 
             // txtNomUsu
             // 
-            this.txtNomUsu.Location = new System.Drawing.Point(99, 177);
+            this.txtNomUsu.Location = new System.Drawing.Point(99, 140);
             this.txtNomUsu.Name = "txtNomUsu";
+            this.txtNomUsu.ReadOnly = true;
             this.txtNomUsu.Size = new System.Drawing.Size(239, 20);
             this.txtNomUsu.TabIndex = 9;
             // 
@@ -153,7 +162,7 @@ namespace InicioCapas
             // 
             // dtpEntrega
             // 
-            this.dtpEntrega.Location = new System.Drawing.Point(473, 49);
+            this.dtpEntrega.Location = new System.Drawing.Point(471, 46);
             this.dtpEntrega.Name = "dtpEntrega";
             this.dtpEntrega.Size = new System.Drawing.Size(213, 20);
             this.dtpEntrega.TabIndex = 15;
@@ -164,43 +173,44 @@ namespace InicioCapas
             this.txtClaveE.Name = "txtClaveE";
             this.txtClaveE.Size = new System.Drawing.Size(131, 20);
             this.txtClaveE.TabIndex = 17;
-            this.txtClaveE.TextChanged += new System.EventHandler(this.txtClaveLibro_TextChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(358, 79);
+            this.button1.Location = new System.Drawing.Point(361, 79);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 18;
             this.button1.Text = "Actualizar";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnEliminar
             // 
-            this.button2.Location = new System.Drawing.Point(520, 79);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Eliminar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnEliminar.Location = new System.Drawing.Point(523, 79);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 19;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // button3
+            // btnEjemplar
             // 
-            this.button3.Location = new System.Drawing.Point(15, 80);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 22);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "Buscar Ejemplar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnEjemplar.Location = new System.Drawing.Point(15, 80);
+            this.btnEjemplar.Name = "btnEjemplar";
+            this.btnEjemplar.Size = new System.Drawing.Size(93, 22);
+            this.btnEjemplar.TabIndex = 20;
+            this.btnEjemplar.Text = "Buscar Ejemplar";
+            this.btnEjemplar.UseVisualStyleBackColor = true;
+            this.btnEjemplar.Click += new System.EventHandler(this.button3_Click);
             // 
-            // dgvLibro
+            // dgvPrestamos
             // 
-            this.dgvLibro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLibro.Location = new System.Drawing.Point(363, 269);
-            this.dgvLibro.Name = "dgvLibro";
-            this.dgvLibro.Size = new System.Drawing.Size(570, 136);
-            this.dgvLibro.TabIndex = 21;
+            this.dgvPrestamos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPrestamos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPrestamos.Location = new System.Drawing.Point(363, 269);
+            this.dgvPrestamos.Name = "dgvPrestamos";
+            this.dgvPrestamos.Size = new System.Drawing.Size(570, 136);
+            this.dgvPrestamos.TabIndex = 21;
             // 
             // dgvLib
             // 
@@ -211,15 +221,15 @@ namespace InicioCapas
             this.dgvLib.Size = new System.Drawing.Size(570, 47);
             this.dgvLib.TabIndex = 22;
             // 
-            // button4
+            // btnUsuario
             // 
-            this.button4.Location = new System.Drawing.Point(180, 80);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(93, 22);
-            this.button4.TabIndex = 23;
-            this.button4.Text = "Buscar Usuario";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnUsuario.Location = new System.Drawing.Point(180, 80);
+            this.btnUsuario.Name = "btnUsuario";
+            this.btnUsuario.Size = new System.Drawing.Size(93, 22);
+            this.btnUsuario.TabIndex = 23;
+            this.btnUsuario.Text = "Buscar Usuario";
+            this.btnUsuario.UseVisualStyleBackColor = true;
+            this.btnUsuario.Click += new System.EventHandler(this.button4_Click);
             // 
             // label2
             // 
@@ -232,14 +242,15 @@ namespace InicioCapas
             // 
             // txtCurp
             // 
-            this.txtCurp.Location = new System.Drawing.Point(99, 137);
+            this.txtCurp.Location = new System.Drawing.Point(99, 180);
             this.txtCurp.Name = "txtCurp";
+            this.txtCurp.ReadOnly = true;
             this.txtCurp.Size = new System.Drawing.Size(239, 20);
             this.txtCurp.TabIndex = 25;
             // 
             // txtClavPres
             // 
-            this.txtClavPres.Location = new System.Drawing.Point(345, 49);
+            this.txtClavPres.Location = new System.Drawing.Point(361, 49);
             this.txtClavPres.Name = "txtClavPres";
             this.txtClavPres.Size = new System.Drawing.Size(80, 20);
             this.txtClavPres.TabIndex = 26;
@@ -247,7 +258,7 @@ namespace InicioCapas
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(344, 23);
+            this.label3.Location = new System.Drawing.Point(360, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 13);
             this.label3.TabIndex = 27;
@@ -258,68 +269,68 @@ namespace InicioCapas
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 184);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 13);
+            this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 28;
-            this.label4.Text = "Clave Prestamo";
+            this.label4.Text = "CURP";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 221);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 13);
+            this.label5.Size = new System.Drawing.Size(50, 13);
             this.label5.TabIndex = 29;
-            this.label5.Text = "Clave Prestamo";
+            this.label5.Text = "Apellido1";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(12, 259);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 13);
+            this.label6.Size = new System.Drawing.Size(53, 13);
             this.label6.TabIndex = 30;
-            this.label6.Text = "Clave Prestamo";
+            this.label6.Text = "Apellido 2";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(12, 343);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 13);
+            this.label7.Size = new System.Drawing.Size(32, 13);
             this.label7.TabIndex = 31;
-            this.label7.Text = "Clave Prestamo";
+            this.label7.Text = "Email";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 301);
+            this.label8.Location = new System.Drawing.Point(12, 295);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(81, 13);
+            this.label8.Size = new System.Drawing.Size(60, 26);
             this.label8.TabIndex = 32;
-            this.label8.Text = "Clave Prestamo";
+            this.label8.Text = "Fecha \r\nNacimiento";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(12, 385);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(81, 13);
+            this.label9.Size = new System.Drawing.Size(52, 13);
             this.label9.TabIndex = 33;
-            this.label9.Text = "Clave Prestamo";
+            this.label9.Text = "Dirección";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(12, 140);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(81, 13);
+            this.label10.Size = new System.Drawing.Size(44, 13);
             this.label10.TabIndex = 34;
-            this.label10.Text = "Clave Prestamo";
+            this.label10.Text = "Nombre";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(717, 23);
+            this.label11.Location = new System.Drawing.Point(714, 23);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(81, 13);
             this.label11.TabIndex = 35;
@@ -328,17 +339,47 @@ namespace InicioCapas
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(470, 23);
+            this.label12.Location = new System.Drawing.Point(468, 23);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(81, 13);
             this.label12.TabIndex = 36;
             this.label12.Text = "Clave Prestamo";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(361, 121);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(50, 13);
+            this.label13.TabIndex = 37;
+            this.label13.Text = "Ejemplar:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(361, 187);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(33, 13);
+            this.label14.TabIndex = 38;
+            this.label14.Text = "Libro:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(361, 253);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(115, 13);
+            this.label15.TabIndex = 39;
+            this.label15.Text = "Registro de prestamos:";
             // 
             // FrmPrestamos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 458);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -352,11 +393,11 @@ namespace InicioCapas
             this.Controls.Add(this.txtClavPres);
             this.Controls.Add(this.txtCurp);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnUsuario);
             this.Controls.Add(this.dgvLib);
-            this.Controls.Add(this.dgvLibro);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.dgvPrestamos);
+            this.Controls.Add(this.btnEjemplar);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtClaveE);
             this.Controls.Add(this.dtpEntrega);
@@ -372,10 +413,11 @@ namespace InicioCapas
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.dtpDevolucion);
             this.Name = "FrmPrestamos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPrestamos";
             this.Load += new System.EventHandler(this.FrmPrestamos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLibros)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLibro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPrestamos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLib)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -398,11 +440,11 @@ namespace InicioCapas
         private System.Windows.Forms.DateTimePicker dtpEntrega;
         private System.Windows.Forms.TextBox txtClaveE;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dgvLibro;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnEjemplar;
+        private System.Windows.Forms.DataGridView dgvPrestamos;
         private System.Windows.Forms.DataGridView dgvLib;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnUsuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCurp;
         private System.Windows.Forms.TextBox txtClavPres;
@@ -416,5 +458,8 @@ namespace InicioCapas
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
     }
 }

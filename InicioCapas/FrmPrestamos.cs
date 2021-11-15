@@ -19,6 +19,7 @@ namespace InicioCapas
         LNCategoria cat = new LNCategoria(Config.cadConexion);
         LNAutor at = new LNAutor(Config.cadConexion);
         LNEjemplar eje = new LNEjemplar(Config.cadConexion);
+        LNUsuario LnUsu = new LNUsuario(Config.cadConexion);
         const string quote = "\'";
        
         public FrmPrestamos()
@@ -31,19 +32,21 @@ namespace InicioCapas
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
-           
-           
+
             EEjemplar Eejemplar = eje.buscar("claveEjemplar="+quote+txtClaveE.Text+quote);
-            llenarDGVEjemplares("claveEjemplar=" + quote + txtClaveE.Text + quote);
-            string hola = "hola";
-            llenarDGVLibros("claveLibro=" + quote + Eejemplar.Libro.ClaveLibro + quote);
-
-
-
-
+            if (eje.claveEjemplarExiste(txtClaveE.Text))
+            {
+                llenarDGVEjemplares("claveEjemplar=" + quote + txtClaveE.Text + quote);
+                llenarDGVLibros("claveLibro=" + quote + Eejemplar.Libro.ClaveLibro + quote);
+            }
+            else
+            {
+                MessageBox.Show("Error el ejemplar no existe");
+            }
         }
+
         public void llenarDGVEjemplares(string condicion = "")
         {
             LNEjemplar eje = new LNEjemplar(Config.cadConexion);
@@ -84,42 +87,83 @@ namespace InicioCapas
             MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void txtClaveLibro_TextChanged(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
+        {
+           
+            
+            EUsuario usuario = LnUsu.buscar("claveUsuario="+quote+txtClave.Text+quote);
+            if (LnUsu.claveUsuarioExiste(txtClave.Text))
+            {
+                txtNomUsu.Text = usuario.Nombre;
+                txtCurp.Text = usuario.Curp;
+                txtAp1.Text = usuario.ApPaterno;
+                txtAp2.Text = usuario.ApMaterno;
+                txtFechaN.Text = usuario.FechaNacimiento.ToString();
+                txtNomUsu.Text = usuario.Nombre;
+                txtEmail.Text = usuario.Email;
+                txtDireccion.Text = usuario.Direccion;
+            }
+            else
+            {
+                MessageBox.Show("Error:El usuario no existe");
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            EPrestamo presta;
+            EEjemplar Eejemplar = eje.buscar("claveEjemplar=" + quote + txtClaveE.Text + quote);
+            if (LnUsu.claveUsuarioExiste(txtClave.Text))
+            {
+                if (eje.claveEjemplarExiste(txtClaveE.Text))
+                {
+                    if (!pres.clavePrestamoExiste(txtClavPres.Text))
+                    {
+                        string x = txtClavPres.Text;
+                        LNUsuario LnUsu = new LNUsuario(Config.cadConexion);
+                        EUsuario eUsuario = LnUsu.buscar("claveUsuario=" + quote + txtClave.Text + quote);
+                        EEjemplar eEjemplar = eje.buscar("claveEjemplar=" + quote + txtClaveE.Text + quote);
+                        presta = new EPrestamo(x, eEjemplar, eUsuario, dtpEntrega.Value, dtpDevolucion.Value);
+                        pres.insertar(presta);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error:La clave de prestamo está repetida");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error el ejemplar no existe");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error:El usuario no existe");
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
 
         }
 
         private void FrmPrestamos_Load(object sender, EventArgs e)
         {
-
+            llenarDGVPrestamos();
         }
-
-        private void button4_Click(object sender, EventArgs e)
+        public void llenarDGVPrestamos(string condicion = "")
         {
-            LNUsuario LnUsu = new LNUsuario(Config.cadConexion);
-            
-            EUsuario usuario = LnUsu.buscar("claveUsuario="+quote+txtClave.Text+quote);
+            DataSet ds;
+            try
+            {
+                ds = pres.listarTodos(condicion);
 
-            txtNomUsu.Text = usuario.Nombre;
-            txtCurp.Text = usuario.Curp;
-            txtAp1.Text = usuario.ApPaterno;
-            txtAp2.Text = usuario.ApMaterno;
-            txtFechaN.Text = usuario.FechaNacimiento.ToString();
-            txtNomUsu.Text = usuario.Nombre;
-            txtEmail.Text = usuario.Email;
-            txtDireccion.Text = usuario.Direccion; 
-          
-        }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            string x = txtClavPres.Text;
-            LNUsuario LnUsu = new LNUsuario(Config.cadConexion);
-            EUsuario eUsuario = LnUsu.buscar("claveUsuario=" + quote + txtClave.Text + quote);
-            EEjemplar eEjemplar = eje.buscar("claveEjemplar=" + quote + txtClaveE.Text + quote);
-            EPrestamo presta = new EPrestamo(x,eEjemplar,eUsuario,dtpEntrega.Value,dtpDevolucion.Value);
-            pres.insertar(presta);
-         
+                dgvPrestamos.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                mensajeError(ex);
+            }
         }
     }
 }

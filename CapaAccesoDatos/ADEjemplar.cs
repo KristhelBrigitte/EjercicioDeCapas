@@ -99,6 +99,43 @@ namespace CapaAccesoDatos
 
         }
 
+        public bool claveEjemplarExiste(string clave)
+        {
+            bool result = false; object ObEscalar;
+
+            SqlConnection conexion = new SqlConnection(cadConexion);
+            SqlCommand comando = new SqlCommand();
+
+            comando.CommandText = "select 1 from Ejemplar Where claveEjemplar=@claveEjemplar";
+            comando.Parameters.AddWithValue("@claveEjemplar", clave);
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                ObEscalar = comando.ExecuteScalar();
+                if (ObEscalar != null)
+                {
+                    result = true;
+                }
+                else
+                {
+                    result = false;
+                }
+
+            }
+            catch (Exception)
+            {
+                throw new Exception("Error de conexión");
+            }
+            finally
+            {
+                comando.Dispose();
+                conexion.Dispose();
+            }
+            return result;
+
+        }
+
 
     }
 }

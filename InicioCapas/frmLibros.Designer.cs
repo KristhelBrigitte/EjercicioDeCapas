@@ -86,6 +86,7 @@ namespace InicioCapas
             // 
             this.txtClaveLibro.Location = new System.Drawing.Point(30, 62);
             this.txtClaveLibro.Name = "txtClaveLibro";
+            this.txtClaveLibro.ShortcutsEnabled = false;
             this.txtClaveLibro.Size = new System.Drawing.Size(90, 20);
             this.txtClaveLibro.TabIndex = 4;
             this.txtClaveLibro.Text = "LB001";
@@ -194,6 +195,7 @@ namespace InicioCapas
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmLibros";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmLibros_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLibros)).EndInit();

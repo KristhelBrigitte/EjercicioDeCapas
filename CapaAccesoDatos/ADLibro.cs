@@ -11,7 +11,6 @@ namespace CapaAccesoDatos
         private string cadConexion;
         private string mensaje;
         public string Mensaje { get; }
-
         #endregion
 
         #region Constructores

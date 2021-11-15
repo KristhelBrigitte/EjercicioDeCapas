@@ -75,7 +75,7 @@ namespace CapaLogicaDeNegocio
         }
 
           public DataSet listarTodos(string condicion)
-        {
+          {
             DataSet setLibros;
             ADLibro adLibro = new ADLibro(cadConexion);
             try

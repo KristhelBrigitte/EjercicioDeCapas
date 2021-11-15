@@ -57,5 +57,20 @@ namespace CapaLogicaDeNegocio
             return eje;
         }
 
+        public bool claveEjemplarExiste(string clav)
+        {
+            bool result = false;
+            ADEjemplar adEjem = new ADEjemplar(cadConexion);
+            try
+            {
+                result = adEjem.claveEjemplarExiste(clav);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
     }
 }
